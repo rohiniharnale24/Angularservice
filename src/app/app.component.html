@@ -1,0 +1,53 @@
+<h1 class="bg-info text-white text-center">Product Service</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <div class="form-group">
+        <label for="pName">Product Name</label>
+        <input type="text" #pname name="" id="pName" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="pName">Product Detail</label>
+        <input type="text" #pdisc name="" id="pName" class="form-control" />
+      </div>
+      <div class="form-group">
+        <button
+          class="btn btn-primary"
+          (click)="onaddProductCard(pname, pdisc)"
+        >
+          Add Product
+        </button>
+        <hr />
+        <div class="card mt-4" *ngFor="let prod of productArray">
+          <div class="card-header Cardazure">
+            <p>
+              You Select {{ prod.pname }} and Product status is
+              {{ prod.pStatus }}
+            </p>
+          </div>
+          <div class="card-body cBody">{{ prod.pDesc }}</div>
+          <div class="card-footer Cardazure">
+            <button
+              class="btn btn-primary"
+              (click)="OnStatusClick(prod.id, productStatus.inProgress)"
+            >
+              In Progress
+            </button>
+            <button
+              class="btn btn-primary mx-2"
+              (click)="OnStatusClick(prod.id, productStatus.dispatched)"
+            >
+              Dispatched
+            </button>
+            <button
+              class="btn btn-primary"
+              (click)="OnStatusClick(prod.id, productStatus.delivered)"
+            >
+              Delivered
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
